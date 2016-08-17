@@ -19,7 +19,6 @@ set shiftwidth=2
 set expandtab
 set smartindent
 filetype plugin indent on
-set cc=81
 
 " Use sensible search settings
 set incsearch
@@ -27,9 +26,10 @@ set hlsearch
 set ignorecase " Ignore search case unless search contains capitals
 set smartcase
 
-" Show line number at the bottom & left side
+" Show line numbers. Show line length right margin.
 set ruler
 set number
+set colorcolumn=80
 
 " Show incomplete commands
 set history=50
