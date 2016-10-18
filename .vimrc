@@ -7,10 +7,13 @@ set nocompatible
 filetype off
 
 " Vundle
+" Install command:
+"   From vim  :PluginInstall
+"   From CLI  vim +PluginInstall +qall
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'altercation/vim-colors-solarized'
-" Plugin 'scrooloose/nerdtree'    This is provided natively.
+Plugin 'townk/vim-autoclose'
 call vundle#end()
 
 " Use sensible tab settings
@@ -26,23 +29,24 @@ set hlsearch
 set ignorecase " Ignore search case unless search contains capitals
 set smartcase
 
-" Show line numbers. Show line length right margin.
+" Show line number at the bottom & margin at right
 set ruler
 set number
-set colorcolumn=80
+set cc=81
+let &colorcolumn=join(range(81,999),",")
 
 " Show incomplete commands
 set history=50
 set showcmd
 
 " Turn on colouring
+
 syntax enable
-" if has('gui_running')
-"   set background=light
-" else
-set background=dark
-" endif
 colorscheme solarized
+set background=dark
+
+" Close html tags
+:au Filetype html,xml,xsl source ~/.vim/bundle/closetag.vim
 
 " Enable backups but stuff them away
 set backup
