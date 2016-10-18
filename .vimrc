@@ -18,9 +18,6 @@ Plugin 'townk/vim-autoclose'
 Plugin 'vim-scripts/closetag.vim'
 call vundle#end()
 
-" Use Tab for completion
-imap <Tab> <C-N>
-
 " Use sensible tab settings
 set tabstop=2
 set shiftwidth=2
@@ -62,6 +59,11 @@ set guioptions-=T
 
 " Close html tags with ctrl-_
 :au Filetype html,xml,xsl source ~/.vim/bundle/closetag.vim
+
+" Use Tab for completion
+imap <Tab> <C-P>
+set wildmode=longest,list,full
+set wildmenu
 
 " Toggle Vexplore with Ctrl-E
 function! ToggleVExplorer()
