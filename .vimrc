@@ -15,8 +15,8 @@ Plugin 'townk/vim-autoclose'
 Plugin 'vim-scripts/closetag.vim'
 call vundle#end()
 
-" Close html tags with ctrl-_
-:au Filetype html,xml,xsl source ~/.vim/bundle/closetag.vim
+" Use Tab for completion
+imap <Tab> <C-N>
 
 " Use sensible tab settings
 set tabstop=2
@@ -42,8 +42,12 @@ set showcmd
 
 " Turn on colouring
 syntax enable
-colorscheme solarized
 set background=dark
+if has('mac')
+  colorscheme solarized
+else
+  colorscheme desert
+endif
 
 " Enable backups but stuff them away
 set backup
@@ -52,6 +56,9 @@ set backupdir=~/.vim/backup
 " Configure the GUI
 set guifont=Consolas:h12
 set guioptions-=T
+
+" Close html tags with ctrl-_
+:au Filetype html,xml,xsl source ~/.vim/bundle/closetag.vim
 
 " Toggle Vexplore with Ctrl-E
 function! ToggleVExplorer()
