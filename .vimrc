@@ -4,17 +4,19 @@
 
 " Use Vim settings
 set nocompatible
-filetype off
 
 " Vundle
-" Install command:
-"   From vim  :PluginInstall
-"   From CLI  vim +PluginInstall +qall
+" From vim  :PluginInstall
+" From CLI  vim +PluginInstall +qall
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'townk/vim-autoclose'
+Plugin 'vim-scripts/closetag.vim'
 call vundle#end()
+
+" Close html tags with ctrl-_
+:au Filetype html,xml,xsl source ~/.vim/bundle/closetag.vim
 
 " Use sensible tab settings
 set tabstop=2
@@ -29,7 +31,7 @@ set hlsearch
 set ignorecase " Ignore search case unless search contains capitals
 set smartcase
 
-" Show line number at the bottom & margin at right
+" Show line numbers & margin at right
 set ruler
 set number
 set cc=81
@@ -40,13 +42,9 @@ set history=50
 set showcmd
 
 " Turn on colouring
-
 syntax enable
 colorscheme solarized
 set background=dark
-
-" Close html tags
-:au Filetype html,xml,xsl source ~/.vim/bundle/closetag.vim
 
 " Enable backups but stuff them away
 set backup
