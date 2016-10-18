@@ -35,7 +35,6 @@ set smartcase
 set ruler
 set number
 set cc=81
-let &colorcolumn=join(range(81,999),",")
 
 " Show incomplete commands
 set history=50
