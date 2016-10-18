@@ -2,6 +2,9 @@
 " My vimrc.
 "
 
+" OS name
+let s:uname = system("uname")
+
 " Use Vim settings
 set nocompatible
 
@@ -43,7 +46,7 @@ set showcmd
 " Turn on colouring
 syntax enable
 set background=dark
-if has('mac')
+if s:uname == "Darwin\n"       "For some reason has('mac') doesn't work
   colorscheme solarized
 else
   colorscheme desert
