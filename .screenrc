@@ -1,5 +1,4 @@
 autodetach on
-escape ^zz
 
 shell -${SHELL}
 defscrollback 2024
