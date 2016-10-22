@@ -31,10 +31,12 @@ set hlsearch
 set ignorecase " Ignore search case unless search contains capitals
 set smartcase
 
-" Show line numbers & margin at right
+" Show line numbers & margin at right.
+" Always show 3 lines before/after the cursor.
 set ruler
 set number
 set cc=81
+set scrolloff=3
 
 " Show incomplete commands
 set history=50
@@ -60,8 +62,7 @@ set guioptions-=T
 " Close html tags with ctrl-_
 :au Filetype html,xml,xsl source ~/.vim/bundle/closetag.vim
 
-" Use Tab for completion
-imap <Tab> <C-P>
+" Completion settings
 set wildmode=longest,list,full
 set wildmenu
 
@@ -102,3 +103,4 @@ autocmd BufReadPost *
       \ if line("'\"") > 1 && line("'\"") <= line("$") |
       \   exe "normal! g`\"" |
       \ endif
+
