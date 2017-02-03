@@ -2,9 +2,6 @@
 " My vimrc.
 "
 
-" OS name
-let s:uname = system("uname")
-
 " Use Vim settings
 set nocompatible
 
@@ -14,8 +11,9 @@ set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'townk/vim-autoclose'
+Plugin 'townk/vim-autoclose'      " Not so good in scheme.
 Plugin 'vim-scripts/closetag.vim'
+" Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 " Use sensible tab settings
@@ -45,18 +43,14 @@ set showcmd
 " Turn on colouring
 syntax enable
 set background=dark
-if s:uname == "Darwin\n"       "For some reason has('mac') doesn't work
-  colorscheme solarized
-else
-  colorscheme desert
-endif
+colorscheme solarized
 
 " Enable backups but stuff them away
 set backup
 set backupdir=~/.vim/backup
 
 " Configure the GUI
-set guifont=Consolas:h12
+set guifont=Monaco:h12
 set guioptions-=T
 
 " Close html tags with ctrl-_
@@ -65,6 +59,18 @@ set guioptions-=T
 " Completion settings
 set wildmode=longest,list,full
 set wildmenu
+
+" Display whitespace
+set listchars=tab:»·,trail:·
+set list
+
+" Removes trailing whitespace
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+endfunction
+" Bind this to F2
+map <F2> :call TrimWhiteSpace()<CR>
 
 " Toggle Vexplore with Ctrl-E
 function! ToggleVExplorer()
