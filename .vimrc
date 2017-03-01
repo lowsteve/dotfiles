@@ -59,7 +59,7 @@ set guioptions-=T
 :au Filetype html,xml,xsl source ~/.vim/bundle/closetag.vim
 
 " Completion settings
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 set wildmode=longest,list,full
 set wildmenu
 
