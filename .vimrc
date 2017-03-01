@@ -13,6 +13,8 @@ call vundle#begin()
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'townk/vim-autoclose'      " Not so good in scheme.
 Plugin 'vim-scripts/closetag.vim'
+Plugin 'vim-scripts/AutoComplPop'
+Plugin 'christoomey/vim-tmux-navigator'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
@@ -57,6 +59,7 @@ set guioptions-=T
 :au Filetype html,xml,xsl source ~/.vim/bundle/closetag.vim
 
 " Completion settings
+set omnifunc=syntaxcomplete#Complete
 set wildmode=longest,list,full
 set wildmenu
 
