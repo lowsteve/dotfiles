@@ -11,10 +11,13 @@ set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'townk/vim-autoclose'      " Not so good in scheme.
+Plugin 'townk/vim-autoclose'
 Plugin 'vim-scripts/closetag.vim'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
@@ -35,7 +38,7 @@ set smartcase
 " Always show 3 lines before/after the cursor.
 set ruler
 set number
-set cc=81
+set cc=80
 set scrolloff=3
 
 " Show incomplete commands
@@ -67,6 +70,12 @@ set wildmenu
 set listchars=tab:»·,trail:·
 set list
 
+" NERDcommenter settings
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+
 " Removes trailing whitespace
 function TrimWhiteSpace()
   %s/\s*$//
@@ -74,35 +83,6 @@ function TrimWhiteSpace()
 endfunction
 " Bind this to F2
 map <F2> :call TrimWhiteSpace()<CR>
-
-" Toggle Vexplore with Ctrl-E
-function! ToggleVExplorer()
-  if exists("t:expl_buf_num")
-    let expl_win_num = bufwinnr(t:expl_buf_num)
-    if expl_win_num != -1
-      let cur_win_nr = winnr()
-      exec expl_win_num . 'wincmd w'
-      close
-      exec cur_win_nr . 'wincmd w'
-      unlet t:expl_buf_num
-    else
-      unlet t:expl_buf_num
-    endif
-  else
-    exec '1wincmd w'
-    Vexplore
-    let t:expl_buf_num = bufnr("%")
-  endif
-endfunction
-map <silent> <C-E> :call ToggleVExplorer()<CR>
-
-" Hit enter in the file browser to open the selected
-" file with :vsplit to the right of browser
-"let g:netrw_brows_split = 4
-"let g:netrow_altv = 1
-
-" Default to tree mode
-let g:netrw_liststyle = 3
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler.
@@ -113,3 +93,10 @@ autocmd BufReadPost *
       \   exe "normal! g`\"" |
       \ endif
 
+" Use , as the leader
+let mapleader = ","
+nnoremap <Leader>w :w<CR>
+map <Leader><Tab> :NERDTreeToggle<CR>
+
+" To toggle VExplore with <Leader><Tab> instead of NERDTree, see:
+" See http://ivanbrennan.nyc/blog/2014/01/16/rigging-vims-netrw/ for details.
