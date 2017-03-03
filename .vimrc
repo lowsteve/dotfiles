@@ -96,6 +96,7 @@ autocmd BufReadPost *
 " Use , as the leader
 let mapleader = ","
 nnoremap <Leader>w :w<CR>
+map <Leader><Tab> :NERDTreeToggle<CR>
 
 " To toggle VExplore with <Leader><Tab> instead of NERDTree, see:
 " See http://ivanbrennan.nyc/blog/2014/01/16/rigging-vims-netrw/ for details.
