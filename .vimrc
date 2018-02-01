@@ -11,15 +11,19 @@ set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'townk/vim-autoclose'
+Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/closetag.vim'
-Plugin 'vim-scripts/AutoComplPop'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'rust-lang/rust.vim'
+Plugin 'morhetz/gruvbox'
+" Plugin 'blueshirts/darcula'
 call vundle#end()
+
+" make backspace work over line breaks
+set backspace=2
 
 " Use sensible tab settings
 set tabstop=2
@@ -45,10 +49,13 @@ set scrolloff=3
 set history=50
 set showcmd
 
+" gruvbox config
+let g:gruvbox_contrast_dark='soft'
+
 " Turn on colouring
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 
 " Enable backups but stuff them away
 set backup
@@ -62,12 +69,12 @@ set guioptions-=T
 :au Filetype html,xml,xsl source ~/.vim/bundle/closetag.vim
 
 " Completion settings
-set omnifunc=syntaxcomplete#Complete
-set wildmode=longest,list,full
-set wildmenu
+" set omnifunc=syntaxcomplete#Complete
+" set wildmode=longest,list,full
+" set wildmenu
 
 " Display whitespace
-set listchars=tab:»·,trail:·
+set listchars=tab:»»,trail:·
 set list
 
 " NERDcommenter settings
