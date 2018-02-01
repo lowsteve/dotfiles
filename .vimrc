@@ -68,13 +68,8 @@ set guioptions-=T
 " Close html tags with ctrl-_
 :au Filetype html,xml,xsl source ~/.vim/bundle/closetag.vim
 
-" Completion settings
-" set omnifunc=syntaxcomplete#Complete
-" set wildmode=longest,list,full
-" set wildmenu
-
 " Display whitespace
-set listchars=tab:»»,trail:·
+set listchars=tab:»-,trail:·
 set list
 
 " NERDcommenter settings
