@@ -8,11 +8,3 @@ hardstatus off
 vbell off
 hardstatus alwayslastline
 hardstatus string "%{= KW} %H %{= Kw}|%= %{-} %-Lw%{= bW}%n%f %t%{-}%+Lw %=| %d %M %c"
-
-chdir /home/mininet/cs144_lab3/
-screen -t mininet bash 
-screen -t pox bash
-chdir /home/mininet/git/csc458_a1/router
-screen -t sr bash
-screen -t main bash
-screen -t misc bash
