@@ -18,8 +18,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'rust-lang/rust.vim'
-Plugin 'morhetz/gruvbox'
-" Plugin 'blueshirts/darcula'
+Plugin 'wlangstroth/vim-racket'
 call vundle#end()
 
 " make backspace work over line breaks
@@ -49,13 +48,10 @@ set scrolloff=3
 set history=50
 set showcmd
 
-" gruvbox config
-let g:gruvbox_contrast_dark='soft'
-
 " Turn on colouring
 syntax enable
 set background=dark
-colorscheme gruvbox
+colorscheme solarized
 
 " Enable backups but stuff them away
 set backup
@@ -95,7 +91,9 @@ autocmd BufReadPost *
       \   exe "normal! g`\"" |
       \ endif
 
+" Use jk as escape in insert mode and prevent cursor from moving back.
 " Use , as the leader
+inoremap jk <Esc>`^
 let mapleader = ","
 nnoremap <Leader>w :w<CR>
 map <Leader><Tab> :NERDTreeToggle<CR>
